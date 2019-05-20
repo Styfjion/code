@@ -35,5 +35,16 @@
 
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
-        
+        valueSet = []
+        if not head or not head.next:
+            return head
+        slow = head
+        fast = head.next
+        while slow and fast:
+            if slow.val == fast.val:
+                slow.next = fast.next
+            else:
+                slow = slow.next
+            fast = fast.next
+        return head
 
