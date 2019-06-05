@@ -52,7 +52,8 @@ class Solution:
     # @param n, an integer
     # @return an integer
     def reverseBits(self, n):
-        return int(str(n)[::-1])
+        strbin_n = bin(n)[2:].zfill(32)[::-1]
+        return int(strbin_n,2)
         
 
 
