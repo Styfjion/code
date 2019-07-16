@@ -38,13 +38,23 @@ class Solution:
         head.next.next = head
         head.next = None
         return newhead
-#循环发
-class Solution2:
+#循环法
+class Solution:
     def reverseList(self, head: ListNode) -> ListNode:
-        if not node:
+        if not head:
             return head
         node = head
-        while node.next:
+        preNode = None
+        while node:
+            temp = node.next
+            node.next = preNode
+            preNode = node
+            node = temp
+        return preNode
+
+
+
+
 
 
         
