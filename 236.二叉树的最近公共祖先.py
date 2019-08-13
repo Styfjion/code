@@ -54,7 +54,8 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+"""
+# 超时方法
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         def bianli(node):
@@ -82,6 +83,7 @@ class Solution:
                    root = root.right
                 else:
                    return root
+"""
 
             
 
