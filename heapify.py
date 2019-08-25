@@ -15,9 +15,8 @@ def big_endian(arr, start, end):
             
 def heap_sort(arr):
    # 无序区大根堆排序
-   first = len(arr) // 2 - 1
-   for start in range(first, -1, -1):   # 从下到上，从右到左对每个节点进调整 循环得到非叶子节点
-       big_endian(arr, start, len(arr) - 1)  # 去调整所有的节点
+   for i in range(len(arr)//2-1, -1, -1):   # 从下到上，从右到左对每个节点进调整 循环得到非叶子节点
+       big_endian(arr, i, len(arr) - 1)  # 去调整所有的节点
    for end in range(len(arr) - 1, 0, -1):
        arr[0], arr[end] = arr[end], arr[0]   # 顶部尾部互换位置
        big_endian(arr, 0, end - 1)          # 重新调整子节点的顺序  从顶开始调整
