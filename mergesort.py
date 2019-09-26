@@ -18,4 +18,4 @@ def Merge(left,right):
     result += list(left[l:])
     result += list(right[r:])
     return result
-print (MergeSort([1, 2, 3, 4, 5, 6, 7, 90, 21, 23, 45]))
+print (MergeSort([54,26,93,17,77,31,44,55,20]))
