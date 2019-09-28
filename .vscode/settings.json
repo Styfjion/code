@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\yangf\\AppData\\Local\\conda\\conda\\envs\\gaitgan\\python.exe",
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true
 }
