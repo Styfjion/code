@@ -19,4 +19,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().Permutation('abcd'))
+    res = Solution().Permutation('abcd')
+    print(res)
+    print(len(res))
