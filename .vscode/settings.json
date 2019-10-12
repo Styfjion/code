@@ -1,5 +1,13 @@
 {
     "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
     "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "files.associations": {
+        "vector": "cpp",
+        "limits": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
+    }
 }

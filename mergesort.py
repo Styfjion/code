@@ -15,7 +15,7 @@ def Merge(left,right):
         else:
             result.append(right[r])
             r += 1
-    result += list(left[l:])
-    result += list(right[r:])
+    result += left[l:]
+    result += right[r:]
     return result
 print (MergeSort([54,26,93,17,77,31,44,55,20]))
