@@ -31,6 +31,18 @@
 # 
 # 
 #
+
+"""
+思路二：动态规划
+
+dp[i] 表示第i个丑数
+
+那么dp[i] = min(2 * dp[l_2], 3 * dp[l_3], 5 * dp[l_5])
+
+这里 l_2, l_3, l_5是表示，指到的位置。
+
+"""
+
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         if not n:
