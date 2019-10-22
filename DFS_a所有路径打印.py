@@ -11,7 +11,6 @@ class DFS:
         self.result = []
         self.path = []
 
-
     def dfs_operation(self,matrix,x,y):
         rows = len(matrix)
         cols = len(matrix[0])
@@ -29,6 +28,7 @@ class DFS:
                 self.dfs_operation(matrix,nx,ny)
                 matrix[nx][ny] = 0
                 self.path.pop()
+
 
 if __name__ == "__main__":
     matrix = [[0,1,0,0,0,1],[0,0,0,1,0,0],[1,0,1,0,0,1],[1,0,0,1,0,1],[1,1,0,0,0,0]]
