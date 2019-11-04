@@ -38,15 +38,11 @@ class Solution:
             return 
         if len(nums) == 1:
             return [nums]
-        nums.sort()
         res = []
         for i in range(len(nums)):
-            if nums[i-1] == nums[i]:
-                continue
             subList = self.permute(nums[:i]+nums[i+1:])
-            for item in subList:
-                temp = item+[nums[i]]
-                res.append(temp)
+            for item in subList: 
+                res.append(item+[nums[i]])
         return res
 
 
