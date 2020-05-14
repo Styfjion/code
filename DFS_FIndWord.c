@@ -3,8 +3,9 @@
 #include <stdbool.h>
 int trace[101][101] = {0};
 int direct[2][4] ={{0,0,1,-1},{1,-1,0,0}};
+int n,m;
 
-bool dfs(int n, int m, char daze[n][m], int trace[][101], char *p, int x, int y)
+bool dfs(char daze[n][m], char *p, int x, int y)
 {
     if(*p == daze[x][y] && *(p+1) == '\0')
         return true;
@@ -16,7 +17,7 @@ bool dfs(int n, int m, char daze[n][m], int trace[][101], char *p, int x, int y)
         {
             trace[nx][ny] = 1;
             p++;
-            if (dfs(n, m, daze, trace, p, nx, ny))
+            if (dfs(daze, p, nx, ny))
                 return true;
             trace[nx][ny] = 0;
             p--;
@@ -25,9 +26,8 @@ bool dfs(int n, int m, char daze[n][m], int trace[][101], char *p, int x, int y)
     return false;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
-    int n,m;
     scanf("%d %d", &n, &m);
 
     char daze[n][m];
@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
                 for(int k=0;k<n;k++)
                     memset(trace[k],0,m*sizeof(int));
                 char *p = word;
-                if(dfs(n, m, daze, trace, p, i, j)){
+                if(dfs(daze,p, i, j)){
                     token = true;
                     break;
                 }
