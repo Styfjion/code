@@ -3,24 +3,18 @@
 #define MAX_LEN 1000000
 
 
-char strSum[MAX_LEN+1] = {'\0'};
+char strSum[MAX_LEN+1];
 char * multiStrings(char * num1, char * num2) {
+    memset(strSum, '0', sizeof(strSum)-1);
     int index1,index2;
-    if(strlen(num1) < strlen(num2))
-    {
-        char *temp = num1;
-        num1 = num2;
-        num2 = temp;
-    }
     index1 = strlen(num1)-1;
     index2 = strlen(num2)-1;
-    if(strlen(num2) == 1 && num2[0] == '0')
+    if(strlen(num2) == 1 && num2[0] == '0' || strlen(num1) == 1 && num1[0] == '0')
     {
-        strSum[MAX_LEN] = '0';
-        return &strSum[MAX_LEN];
+        strSum[MAX_LEN-1] = '0';
+        return &strSum[MAX_LEN-1];
     }
-    int token1,token2,cnt=0;
-    int sumIndex = MAX_LEN-1;
+    int sumIndex,token1,token2,cnt=0;
     for(int i=index2;i>-1;i--)
     {
         token1 = token2 = 0;
@@ -42,7 +36,7 @@ char * multiStrings(char * num1, char * num2) {
             token2 = sumStr/10;
             sumStr %= 10;
             int temp;
-            temp = ((strSum[sumIndex] == '\0') ? 0 : (strSum[sumIndex] - '0')) + sumStr + token1;
+            temp = strSum[sumIndex] - '0' + sumStr + token1;
             strSum[sumIndex] = temp%10 + '0';
             token1 = temp/10;
             sumIndex--;
@@ -58,7 +52,6 @@ int main()
     char bigA[MAX_LEN+1], bigB[MAX_LEN+1];
     while(scanf("%s %s",bigA,bigB)!=EOF) {
         printf("%s\n", multiStrings(bigA, bigB));
-        memset(strSum, '\0', sizeof(strSum));
     }
 
     return 0;
