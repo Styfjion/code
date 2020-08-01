@@ -53,14 +53,154 @@ void Union(int x, int y , int *pre)
 int left = 0;
 for (int i = 0; i < arraySize; i++) {
     do something...
+    //有时会出现
+    if (contiditon is false) {
+        continue
+    }
     while(conditon is true) {
-        //求最短，最小XXX时
         ans = min(ans, ...); 
+        or ans = max(ans, ...)
         do someting... reverse
         left++;
     }
-    //求最长，最大XXX时
-    ans = max(ans, ...);  
+    ans = max(ans, ...);
+    or ans = min(ans, ...);  
 }
+```
+
+
+## 前缀和模型
+### 代码模板:
+```
+HashMap *map, *node;
+map = NULL;
+int preSum = 0;
+for (int i = 0; i < arraySize; i++) {
+    node = NULL;
+    preSum += array[i];
+    HASH_FIND_INT(map, &preSum, node);
+    if (node != NULL) {
+        node->count++;
+    } else {
+        node = malloc(sizeof(HashMap));
+        node->number = preSum;
+        node->count = 1;
+    }
+}
+```
+
+## 差分模型
+### 代码模板
+```
+int intervalsSize = endTime + 1;
+for (int i = 0; i < intervalsSize; i++) {
+    time[intervals[i][0]] += intervals[i][2];    //上车
+    time[intervals[i][1]] -= intervals[i][2];    //下车
+}
+int timeProc = 0;
+int maxNum = 0;
+for (int i = 0; i <= endTime; i++) {
+    timeProc += time[i];                 //前进             
+    do something
+
+}
+```
+
+## 字符串拼接与截取
+### 代码
+```
+//从source中去掉第i位
+char target = [strlen(s)];
+memset_s(target, sizeof(target), 0, sizeof(target));
+strncat_s(target, sizeof(target), source, i);
+strcat_s(target, sizeof(target), source + i + 1);
+
+//截取字符串
+char reviews[] = "java python cpp";
+char *nextToken = NULL;
+char *token = NULL;
+char *seps = " ";
+token = strtok_s(reviews, seps, &nextToken);
+
+while (token != NULL) {
+    printf("%s\r\n", token);       
+    token = strtok_s(NULL, seps, &nextToken);
+```
+### BFS
+### 代码模板
+```
+typedef struct {
+    int data; or char data[MAX];
+    int pathLen;
+} Unit;
+
+//BFS函数中的操作
+Unit queue[totalDataSize];
+int queueHead = 0;
+int queueTail = 0;
+queue[queueTail].data = beginData;
+queue[queueTail].pathLen = 1;
+bool visited[totalDataSize];
+memset(visited, 0, sizeof(visited));
+while (queueHead < queueTail) {
+    Unit *top = &queue[queueHead++];
+    if (condition is true) {
+        return true;
+    }
+    for (int i = 0; i < conditionSize; i++) {
+        if (!visited[i] and conditionSize[i] is true) {
+            visited[i] = true;
+            queue[queueTail].data = conditionSize[i];
+            queue[queueTail].pathLen = top->pathLen + 1;
+        }
+    }
+}
+return false;
+```
+
+### 字典树
+### 代码
+
+```
+typedef struct Trie {
+    bool isEnd;
+    struct Trie *next[MAX];
+} Trie;
+
+Trie *TrieInit()
+{
+    Trie *root = malloc(sizeof(Trie));
+    memset(root, 0, sizeof(Trie));
+    return root;
+}
+
+void InsertTire(Trie *node, char *word)
+{
+    for (int i = 0; word[i] != '\0'; i++) {
+        char ch = word[i];
+        if (!node->next[ch - 'a']) {
+            node->next[ch - 'a'] = TrieInit();
+        }
+        node = node->next[ch - 'a'];
+        node->isEnd = false;
+    }
+    node->isEnd = true;
+}
+
+bool TrieStartsWith(Trie* node, char * prefix) {
+    for (int i = 0; prefix[i] != '\0'; i++) {
+        char ch = prefix[i];
+        if (node->next[ch - 'a'] == NULL) {
+            return false;
+        }
+        node = node->next[ch - 'a'];
+    }
+    return true;
+}
+```
+
+
+
+
 
 
