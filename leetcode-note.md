@@ -4,7 +4,7 @@
 int stack[arraySize];
 int stackLen = 0;
 for (int i = 0; i < arraySize; i++) {
-    if (!stack && array[stack[stackLen - 1]] <= array[i]) {
+    if (!stackLen && array[stack[stackLen - 1]] <= array[i]) {
         stackLen--;
     }  //严格递增栈
     if (stackLen) {
