@@ -3,8 +3,8 @@
 ```
 int stack[arraySize];
 int stackLen = 0;
-for (int i = 0; i < arraySize; i++) {
-    if (!stackLen && array[stack[stackLen - 1]] <= array[i]) {
+for (int i = arraySize - 1; i > _1_; i--) {
+    if (stackLen && array[stack[stackLen - 1]] <= array[i]) {
         stackLen--;
     }  //严格递增栈
     if (stackLen) {
