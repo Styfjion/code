@@ -92,7 +92,13 @@ for (int i = 0; i < arraySize; i++) {
 ## 差分模型
 ### 代码模板
 ```
-int intervalsSize = endTime + 1;
+int endTime = 0;
+for (int i = 0; i <intervalsSize; i++) {
+    endTime = MAX(intervals[i][1], endTime);
+}
+
+int time[endTime + 1];
+memset(time, 0, sizeof(time));
 for (int i = 0; i < intervalsSize; i++) {
     time[intervals[i][0]] += intervals[i][2];    //上车
     time[intervals[i][1]] -= intervals[i][2];    //下车
