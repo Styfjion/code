@@ -204,6 +204,38 @@ bool TrieStartsWith(Trie* node, char * prefix) {
     return true;
 }
 ```
+### 最大最小问题 二分法
+### 代码模板
+```
+bool CheckValid(int *array, int arraySize, int limit, int mid)
+{
+    int cnt = 1;
+    for （int i= 0; i < arraySize; i++） {
+        if (/* 不满足边界条件 */) {  //最大值中的最小 >mid 最小值中的最大， <mid
+            cnt++;
+        }
+    }
+    return /* cnt和limit比较 */
+}
+
+int FindMaxMin(int *array, int arraySize, int limit)
+{
+    int left, right, mid;
+    /* 确定左右边界 */
+    while (left <= right) {
+        mid = (left + right) / 2;
+        if (CheckValid(array, arraySize, limit, mid)) {
+            rslt = mid /* 求最大值中的最小值 */ 
+            right = mid - 1;
+        } else {
+            //rslt = mid /* 求最小值中的最大 *、
+            left = mid + 1;
+        }
+    }
+    return rslt;
+}
+```
+
 
 
 
