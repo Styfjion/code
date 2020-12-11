@@ -228,7 +228,7 @@ int FindMaxMin(int *array, int arraySize, int limit)
             rslt = mid /* 求最大值中的最小值 */ 
             right = mid - 1;
         } else {
-            //rslt = mid /* 求最小值中的最大 */
+            //rslt = mid /* 求最小值中的最大, 改分支移到条件为真 */
             left = mid + 1;
         }
     }
