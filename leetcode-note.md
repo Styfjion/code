@@ -225,10 +225,11 @@ int FindMaxMin(int *array, int arraySize, int limit)
     while (left <= right) {
         mid = (left + right) / 2;
         if (CheckValid(array, arraySize, limit, mid)) {
-            rslt = mid /* 求最小化中的最大值 */ 
+            rslt = mid /* 求最小化值中的最大值, 等价于求左侧序列的右边界，二分时移动右锚点*/ 
             right = mid - 1;
         } else {
-            //rslt = mid /* 求最大化的最小值, 改分支移到条件为真 */
+            // if (CheckValid(array, arraySize, limit, mid))
+            //     rslt = mid /* 求最大化的最小值, 该分支移到条件为真, 等价于求右侧序列的左边界，二分时移动左锚点*/
             left = mid + 1;
         }
     }
