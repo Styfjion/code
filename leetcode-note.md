@@ -1,6 +1,6 @@
 ## 单调栈
 ### 代码模板
-```
+```C
 int stack[arraySize];
 int stackLen = 0;
 for (int i = arraySize - 1; i > _1_; i--) {
@@ -16,7 +16,7 @@ for (int i = arraySize - 1; i > _1_; i--) {
 
 ## 并查集
 ### 代码模板
-```
+```C
 int g_count;
 
 int FindRoot(int root, int *pre)
@@ -48,7 +48,7 @@ void Union(int x, int y , int *pre)
 
 ## 滑动窗口模型
 ### 代码模板:
-```
+```C
 //for控制右边界前进, while控制左边界前进
 int left = 0;
 for (int i = 0; i < arraySize; i++) {
@@ -71,7 +71,7 @@ for (int i = 0; i < arraySize; i++) {
 
 ## 前缀和模型
 ### 代码模板:
-```
+```C
 HashMap *map, *node;
 map = NULL;
 int preSum = 0;
@@ -91,7 +91,7 @@ for (int i = 0; i < arraySize; i++) {
 
 ## 差分模型
 ### 代码模板
-```
+```C
 int endTime = 0;
 for (int i = 0; i <intervalsSize; i++) {
     endTime = MAX(intervals[i][1], endTime);
@@ -114,7 +114,7 @@ for (int i = 0; i <= endTime; i++) {
 
 ## 字符串拼接与截取
 ### 代码
-```
+```C
 //从source中去掉第i位
 char target = [strlen(s)];
 memset_s(target, sizeof(target), 0, sizeof(target));
@@ -134,7 +134,7 @@ while (token != NULL) {
 ```
 ### BFS
 ### 代码模板
-```
+```C
 typedef struct {
     int data; or char data[MAX];
     int pathLen;
@@ -167,7 +167,7 @@ return false;
 ### 字典树
 ### 代码
 
-```
+```C
 typedef struct Trie {
     bool isEnd;
     struct Trie *next[MAX];
@@ -206,7 +206,7 @@ bool TrieStartsWith(Trie* node, char * prefix) {
 ```
 ### 最大最小问题 二分法
 ### 代码模板
-```
+```C
 bool CheckValid(int *array, int arraySize, int limit, int mid)
 {
     int cnt = 1;
