@@ -163,8 +163,8 @@ while (queueHead < queueTail) {
 }
 return false;
 ```
-###拓扑排序
-###代码模板
+## 拓扑排序
+### 代码模板
 ```C++
 class Solution {
 public:
