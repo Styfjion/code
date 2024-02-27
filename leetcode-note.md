@@ -163,7 +163,51 @@ while (queueHead < queueTail) {
 }
 return false;
 ```
+###拓扑排序
+###代码模板
+```C++
+class Solution {
+public:
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites)
+    {
+        vector<pair<int, vector<int>>> courses(numCourses, {0, {}});
 
+        for (auto &pre : prerequisites) {
+            // 添加后续依赖
+            courses[pre[1]].second.push_back(pre[0]);
+            // 增加入度
+            courses[pre[0]].first++;
+        }
+        queue<int> courseQueue;
+        
+        for(int i = 0; i < numCourses; i++) {
+            if (courses[i].first == 0) {
+                // 收集入度为0，即没有依赖的节点
+                courseQueue.push(i);
+            }
+        }
+
+        vector<int> rslt;
+        while (!courseQueue.empty()) {
+            int topCourseIdx = courseQueue.front();
+            rslt.push_back(topCourseIdx);
+            courseQueue.pop();
+            for (int afterCourseIdx : courses[topCourseIdx].second) {
+                if (--courses[afterCourseIdx].first == 0) {
+                    // 后续课程入度为0时，添加到队列
+                    courseQueue.push(afterCourseIdx);
+                }
+            }
+        }
+
+        if (rslt.size() == numCourses) {
+            return rslt;
+        } else {
+            return {};
+        }
+    }
+};
+```
 ### 字典树
 ### 代码
 
