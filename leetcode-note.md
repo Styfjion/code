@@ -269,11 +269,11 @@ int FindMaxMin(int *array, int arraySize, int limit)
     while (left <= right) {
         mid = (left + right) / 2;
         if (CheckValid(array, arraySize, limit, mid)) {
-            rslt = mid /* 求最小化值中的最大值, 等价于求左侧序列的右边界，二分时移动右锚点*/ 
+            rslt = mid /* 求最小值时,已满足当前条件时，区间应该左移*/ 
             right = mid - 1;
         } else {
             // if (CheckValid(array, arraySize, limit, mid))
-            //     rslt = mid /* 求最大化的最小值, 该分支移到条件为真, 等价于求右侧序列的左边界，二分时移动左锚点*/
+            //     rslt = mid /* 求最大值时，已满足当前条件时，区间应该右移 */
             left = mid + 1;
         }
     }
